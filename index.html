@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuroViz : Neural Network Playground</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span>neuroviz
+        <small>an interactive neural network lab</small>
+      </span>
+    </a>
+    <div class="top-note"><span class="status-dot"></span> Live calculations</div>
+  </header>
+
+  <main class="layout site-content">
+    <aside class="controls panel">
+      <div class="eyebrow">BUILD YOUR NETWORK</div>
+      <h1>Train the brain.</h1>
+      <p class="muted">Drag a slider. The network updates as you go.</p>
+
+      <section class="control-group">
+        <div class="control-heading"><label for="inputCount">Input neurons</label><output id="inputCountOut">2</output></div>
+        <input id="inputCount" type="range" min="1" max="4" value="2" step="1">
+        <div class="range-labels"><span>1</span><span>4</span></div>
+        <p class="hint">Inputs are the numbers you give the network.</p>
+      </section>
+
+      <section class="control-group">
+        <div class="control-heading"><label for="hiddenCount">Hidden layers</label><output id="hiddenCountOut">1</output></div>
+        <input id="hiddenCount" type="range" min="0" max="3" value="1" step="1">
+        <div class="range-labels"><span>0</span><span>3</span></div>
+        <p class="hint">Hidden layers process the information. Try adding one.</p>
+      </section>
+
+      <div id="layerControls"></div>
+
+      <section class="control-group">
+        <label for="activation">Activation function</label>
+        <select id="activation">
+          <option value="sigmoid">Sigmoid (0 to 1)</option>
+          <option value="relu">ReLU (0 or above)</option>
+          <option value="tanh">Tanh (-1 to 1)</option>
+        </select>
+        <p class="hint">This function transforms each neuron's calculated total.</p>
+      </section>
+
+      <button id="resetBtn" class="quiet-button">Reset values</button>
+    </aside>
+
+    <section class="workspace">
+      <div class="intro">
+        <div>
+          <div class="eyebrow">YOUR WORKSPACE</div>
+          <h2>Every connection has a story.</h2>
+          <p class="muted">Select a neuron or a line to edit its value, bias, or weight.</p>
+        </div>
+        <div class="output-pill"><span>FINAL OUTPUT</span><strong id="finalOutput">—</strong></div>
+      </div>
+
+      <section class="network-panel panel">
+        <div class="network-toolbar">
+          <div><strong>Network map</strong><span class="muted"> · click to inspect</span></div>
+          <div class="legend"><span><i class="legend-dot input-dot"></i> Input</span><span><i class="legend-dot hidden-dot"></i> Hidden</span><span><i class="legend-dot output-dot"></i> Output</span></div>
+        </div>
+        <div id="networkCanvas" class="network-canvas" aria-label="Interactive neural network diagram"></div>
+        <div class="network-foot muted">Line thickness shows the strength of a weight. Color shows whether it is positive or negative.</div>
+      </section>
+
+      <section class="editor panel">
+        <div class="editor-title"><div><div class="eyebrow">SELECTED ELEMENT</div><h3 id="selectedTitle">Input neuron 1</h3></div><span class="edit-tag" id="selectedType">INPUT</span></div>
+        <div id="editorFields" class="editor-fields"></div>
+      </section>
+
+      <section class="teacher panel">
+        <div class="teacher-heading"><span class="teacher-icon">✳</span><div><div class="eyebrow">YOUR FRIENDLY MATH TEACHER</div><h3>Let's work it out together.</h3></div></div>
+        <p class="muted">The explanation updates whenever you change a value.</p>
+        <div id="lessonSteps" class="lesson-steps"></div>
+      </section>
+    </section>
+  </main>
+  <footer>Made for curious minds. No black box, just small steps. <span>NeuroViz · Learning mode</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
