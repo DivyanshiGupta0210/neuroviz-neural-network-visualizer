@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🧠 NeuroViz — Neural Network Playground
 
 **See the math. Understand the magic. Build your intuition.**
@@ -136,3 +137,7 @@ Built for curious minds who want to understand not just *what* a neural network 
 ---
 
 **Made with curiosity and a love for machine learning.** 💚
+=======
+# neuroviz-neural-network-visualizer
+An interactive neural network visualizer to explore layers, neurons, weights, biases, and activation functions with real-time calculations and step-by-step explanations. Aimed to introduce people to the fascinating world of neural networks.
+>>>>>>> 98589ccb66733cedf4e7ca2f5275b057f485d602
